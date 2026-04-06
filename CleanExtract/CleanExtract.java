@@ -1,6 +1,10 @@
 public class CleanExtract {
+
     public static String extract(String s) {
-        String[] substrings = s.split("\\|");
+        if (s == null || s.isEmpty()) {
+            return "";
+        }
+        String[] substrings = s.split("\\|", -1);
 
         StringBuilder result = new StringBuilder();
 
@@ -9,14 +13,12 @@ public class CleanExtract {
             int indexOfLast = phrase.lastIndexOf(".");
 
             if (indexOfFirst != -1 && indexOfLast != -1 && indexOfFirst != indexOfLast) {
-                String extracted = phrase.substring(indexOfFirst+1, indexOfLast).trim();
+                String extracted = phrase.substring(indexOfFirst + 1, indexOfLast).trim();
                 if (!extracted.isEmpty()) {
-                    if (result.length() > 0){
-                    result.append(" ");
+                    if (result.length() > 0) {
+                        result.append(" ");
                     }
                     result.append(extracted);
-                }else {
-                    continue;
                 }
             }
         }
