@@ -5,6 +5,7 @@ public class Palindrome {
         if (s == null || s.isEmpty()) {
             return false;
         }
+        s = s.toLowerCase();
         String reversed = new StringBuilder(s).reverse().toString();
         return s.equals(reversed);
     }
