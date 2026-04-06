@@ -4,28 +4,28 @@ public class CleanExtract {
         if (s == null || s.isEmpty()) {
             return "";
         }
+        String[] substrings = s.split("\\|", -1);
 
-        String[] substrings = s.split("\\|");
         StringBuilder result = new StringBuilder();
 
         for (String phrase : substrings) {
-            phrase = phrase.trim();
+            int indexOfFirst = phrase.indexOf(".");
+            int indexOfLast = phrase.lastIndexOf(".");
 
-            int first = phrase.indexOf('.');
-            int last = phrase.lastIndexOf('.');
-
-            if (first != -1 && last != -1 && first < last) {
-                String extracted = phrase.substring(first + 1, last).trim();
-
+            if (indexOfFirst != -1 && indexOfLast != -1 && indexOfFirst != indexOfLast) {
+                String extracted = phrase.substring(indexOfFirst + 1, indexOfLast).trim();
                 if (!extracted.isEmpty()) {
                     if (result.length() > 0) {
                         result.append(" ");
                     }
                     result.append(extracted);
                 }
+            }else {
+                if (result.length() > 0) {
+                        result.append(" ");
+                    }
             }
         }
-
         return result.toString();
     }
 }
