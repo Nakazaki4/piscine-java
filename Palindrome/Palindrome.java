@@ -2,8 +2,11 @@
 public class Palindrome {
 
     public static boolean isPalindrome(String s) {
-        if (s == null || s.isEmpty()) {
+        if (s == null) {
             return false;
+        }
+        if (s.isEmpty()) {
+            return true;
         }
         s = s.toLowerCase();
         String reversed = new StringBuilder(s).reverse().toString();
