@@ -1,29 +1,27 @@
+
 public class CleanExtract {
 
     public static String extract(String s) {
-        if (s == null || s.isEmpty()) {
-            return "";
-        }
-        String[] substrings = s.split("\\|", -1);
-
+        String[] parts = s.split("\\|");
         StringBuilder result = new StringBuilder();
+        for (String phrase : parts) {
+            phrase = phrase.trim();
+            int firstDot = phrase.indexOf('.');
+            int lastDot = phrase.lastIndexOf('.');
+            String cleaned = "";
 
-        for (String phrase : substrings) {
-            int indexOfFirst = phrase.indexOf(".");
-            int indexOfLast = phrase.lastIndexOf(".");
-
-            if (indexOfFirst != -1 && indexOfLast != -1 && indexOfFirst != indexOfLast) {
-                String extracted = phrase.substring(indexOfFirst + 1, indexOfLast).trim();
-                if (!extracted.isEmpty()) {
-                    if (result.length() > 0) {
-                        result.append(" ");
-                    }
-                    result.append(extracted);
+            if (firstDot != -1) {
+                if (firstDot == lastDot) {
+                    cleaned = phrase.substring(firstDot + 1).trim();
+                } else {
+                    cleaned = phrase.substring(firstDot + 1, lastDot).trim();
                 }
-            }else {
-                if (result.length() > 0) {
-                        result.append(" ");
-                    }
+            }
+            if (!cleaned.isEmpty()) {
+                if (!result.isEmpty()) {
+                    result.append(" ");
+                }
+                result.append(cleaned);
             }
         }
         return result.toString();
