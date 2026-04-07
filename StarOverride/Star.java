@@ -7,6 +7,10 @@ public class Star extends CelestialObject {
         return magnitude;
     }
 
+    public Star(){
+        
+    }
+
     public Star(String name, double x, double y, double z, double a) {
         super(name, x, y, z);
         this.magnitude = a;
