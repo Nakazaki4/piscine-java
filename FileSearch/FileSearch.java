@@ -4,13 +4,13 @@ import java.io.File;
 public class FileSearch {
     public static String searchFile(String fileName) {
         File root = new File("documents");
+        if (!root.exists() || !root.isDirectory()) {
+            return null;
+        }
         return findFile(root, fileName);
     }
 
     private static String findFile(File root, String filename) {
-        if (!root.exists() || !root.isDirectory()) {
-            return null;
-        }
         File[] files = root.listFiles();
         if (files == null) {
             return null;
