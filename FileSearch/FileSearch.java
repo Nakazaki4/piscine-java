@@ -3,7 +3,7 @@ import java.io.File;
 
 public class FileSearch {
     public static String searchFile(String fileName) {
-        File root = new File(fileName);
+        File root = new File("documents");
         return findFile(root, fileName);
     }
 
