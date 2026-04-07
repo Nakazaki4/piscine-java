@@ -71,6 +71,7 @@ public class CelestialObject {
     @Override
     public boolean equals(Object object) {
         if (this == object) return true;
+        if (object == null) return false;
 
         CelestialObject o = (CelestialObject) object;
 
