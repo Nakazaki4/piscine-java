@@ -50,11 +50,11 @@ public class CelestialObject {
         this.name = name;
     }
 
-    public double getDistanceBetween(CelestialObject obj1, CelestialObject obj2) {
+    public static double getDistanceBetween(CelestialObject obj1, CelestialObject obj2) {
         return Math.abs(obj1.x - obj2.x);
     }
 
-    public double getDistanceBetweenInKm(CelestialObject obj1, CelestialObject obj2) {
+    public static double getDistanceBetweenInKm(CelestialObject obj1, CelestialObject obj2) {
         return getDistanceBetween(obj1, obj2) * KM_IN_ONE_AU;
     }
 
