@@ -8,6 +8,9 @@ public class FileSearch {
     }
 
     private static String findFile(File root, String filename) {
+        if (!root.exists() || !root.isDirectory()) {
+            return null;
+        }
         File[] files = root.listFiles();
         if (files == null) {
             return null;
