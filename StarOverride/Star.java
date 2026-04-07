@@ -8,7 +8,7 @@ public class Star extends CelestialObject {
     }
 
     public Star(){
-        
+
     }
 
     public Star(String name, double x, double y, double z, double a) {
@@ -25,8 +25,7 @@ public class Star extends CelestialObject {
         return this.name + " shines at the " + String.format("%.3f magnitude", this.magnitude);
     }
 
-    @Override
-    public boolean equals(Object object) {
+    public boolean equals(Star object) {
         if (this == object)
             return true;
         if (object == null)
