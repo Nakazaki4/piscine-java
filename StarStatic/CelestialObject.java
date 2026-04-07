@@ -51,7 +51,11 @@ public class CelestialObject {
     }
 
     public static double getDistanceBetween(CelestialObject obj1, CelestialObject obj2) {
-        return Math.abs(obj1.x - obj2.x);
+        double dx = obj1.x - obj2.x;
+        double dy = obj1.y - obj2.y;
+        double dz = obj1.z - obj2.z;
+
+        return Math.sqrt(dx * dx + dy * dy + dz * dz);
     }
 
     public static double getDistanceBetweenInKm(CelestialObject obj1, CelestialObject obj2) {
