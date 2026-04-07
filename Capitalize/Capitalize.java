@@ -1,34 +1,31 @@
 import java.io.*;
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class Capitalize {
     public static void capitalize(String[] args) throws IOException {
-        if (args.length < 2) return;
+        if (args.length < 2)
+            return;
 
         File inputFile = new File(args[0]);
         File outputFile = new File(args[1]);
 
-        try (Scanner sc = new Scanner(inputFile);
-             PrintWriter writer = new PrintWriter(new FileWriter(outputFile))) {
-            
-            while (sc.hasNextLine()) {
-                String line = sc.nextLine();
-                
-                String capitalizedLine = Arrays.stream(line.split(" "))
-                    .map(word -> cap(word))
-                    .collect(Collectors.joining(" "));
-                
-                writer.println(capitalizedLine);
+        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+                BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
+            int c;
+            boolean lastWasSpace = false;
+            while ((c = reader.read()) != -1) {
+                char character = (char) c;
+
+                if (Character.isWhitespace(character)) {
+                    lastWasSpace = true;
+                } else {
+                    if (lastWasSpace) {
+                        writer.write(Character.toUpperCase(character));
+                        lastWasSpace = false;
+                    } else {
+                        writer.write(character);
+                    }
+                }
             }
         }
-    }
-
-    private static String cap(String word) {
-        if (word == null || word.isEmpty()) {
-            return word;
-        }
-        return word.substring(0, 1).toUpperCase() + word.substring(1);
     }
 }
