@@ -1,0 +1,51 @@
+public class Planet extends CelestialObject {
+    private Star centerStar;
+
+    public Planet() {
+        super();
+        centerStar = new Star();
+    }
+
+    public Planet(String name, double x, double y, double z, Star centerStar) {
+        super(name, x, y, z);
+        this.centerStar = centerStar;
+    }
+
+    public Star getCenterStar() {
+        return centerStar;
+    }
+
+    public void setCenterStar(Star centerStar) {
+        this.centerStar = centerStar;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + ((centerStar == null) ? 0 : centerStar.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Planet other = (Planet) obj;
+        if (centerStar == null) {
+            if (other.centerStar != null)
+                return false;
+        } else if (!centerStar.equals(other.centerStar))
+            return false;
+        return true;
+    }
+
+    public String toString() {
+        double distance = super.getDistanceBetween(this, centerStar);
+        return String.format("%s circles around %s at the %f AU", super.getName(), centerStar.name, distance);
+    }
+}
