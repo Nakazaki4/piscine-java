@@ -7,7 +7,7 @@ public class Star extends CelestialObject {
         return magnitude;
     }
 
-    public Star(){
+    public Star() {
 
     }
 
@@ -24,17 +24,20 @@ public class Star extends CelestialObject {
         return this.name + " shines at the " + String.format("%.3f magnitude", this.magnitude);
     }
 
-    public boolean equals(Star object) {
-        if (this == object)
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
             return true;
-        if (object == null || getClass() != object.getClass())
+        if (obj == null || getClass() != obj.getClass())
             return false;
+
+        Star object = (Star) obj;
 
         return Double.compare(object.x, x) == 0 &&
                 Double.compare(object.y, y) == 0 &&
                 Double.compare(object.z, z) == 0 &&
                 Objects.equals(name, object.name) &&
-                this.magnitude == object.magnitude;
+                Double.compare(object.magnitude, magnitude) == 0;
     }
 
     public int hashCode() {
