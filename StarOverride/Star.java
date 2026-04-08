@@ -30,13 +30,11 @@ public class Star extends CelestialObject {
         if (object == null)
             return false;
 
-        Star o = (Star) object;
-
-        return Double.compare(o.x, x) == 0 &&
-                Double.compare(o.y, y) == 0 &&
-                Double.compare(o.z, z) == 0 &&
-                Objects.equals(name, o.name) &&
-                this.magnitude == o.magnitude;
+        return Double.compare(object.x, x) == 0 &&
+                Double.compare(object.y, y) == 0 &&
+                Double.compare(object.z, z) == 0 &&
+                Objects.equals(name, object.name) &&
+                this.magnitude == object.magnitude;
     }
 
     public int hashCode() {
