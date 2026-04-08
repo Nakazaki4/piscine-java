@@ -20,7 +20,6 @@ public class Star extends CelestialObject {
         this.magnitude = magnitude;
     }
 
-    @Override
     public String toString() {
         return this.name + " shines at the " + String.format("%.3f magnitude", this.magnitude);
     }
@@ -40,7 +39,6 @@ public class Star extends CelestialObject {
                 this.magnitude == o.magnitude;
     }
 
-    @Override
     public int hashCode() {
         return Objects.hash(name, x, y, z, magnitude);
     }
