@@ -31,17 +31,16 @@ public class Planet extends CelestialObject {
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
-        if (obj == null)
+
+        if (obj == null || getClass() != obj.getClass())
             return false;
-        if (getClass() != obj.getClass())
-            return false;
+
         Planet other = (Planet) obj;
-        if (centerStar == null) {
-            if (other.centerStar != null)
-                return false;
-        } else if (!centerStar.equals(other.centerStar))
-            return false;
-        return true;
+        if (super.equals(obj)) {
+            return this.centerStar.equals(other.centerStar);
+        }
+
+        return false;
     }
 
     public String toString() {
