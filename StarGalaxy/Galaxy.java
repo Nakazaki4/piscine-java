@@ -3,21 +3,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Galaxy {
-    private List<CelestialObject> coList;
+    private List<CelestialObject> celestialObjects;
 
     public Galaxy() {
-        coList = new ArrayList<>();
+        celestialObjects = new ArrayList<>();
     }
 
-    public List<CelestialObject> getCoList() {
-        return coList;
+    public List<CelestialObject> getCelestialObjects() {
+        return celestialObjects;
     }
 
-    public void setCoList(List<CelestialObject> coList) {
-        this.coList = coList;
+    public void setCelestialObjects(List<CelestialObject> coList) {
+        this.celestialObjects = coList;
     }
 
     public void addCelestialObject(CelestialObject obj) {
-        coList.add(obj);
+        celestialObjects.add(obj);
     }
 }
