@@ -4,7 +4,7 @@ public class CelestialObject {
     public double x, y, z;
     public String name;
     public static double KM_IN_ONE_AU = 150000000.0;
-    public int mass;
+    private int mass;
 
     public CelestialObject() {
         this.x = 0.0;
