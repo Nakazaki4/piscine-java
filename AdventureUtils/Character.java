@@ -19,7 +19,7 @@ public class Character {
         if (allCharacters.isEmpty()) {
             s.append("------------------------------------------\n");
             s.append("Nobody's fighting right now !\n");
-            s.append("------------------------------------------");
+            s.append("------------------------------------------\n");
             return s.toString();
         }
         s.append("------------------------------------------\n");
@@ -27,7 +27,7 @@ public class Character {
         for (Character character : allCharacters) {
             s.append(String.format(" - %s\n", character.toString()));
         }
-        s.append("------------------------------------------");
+        s.append("------------------------------------------\n");
         return s.toString();
     }
 
