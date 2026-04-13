@@ -23,7 +23,7 @@ public class Character {
             return s.toString();
         }
         s.append("------------------------------------------\n");
-        s.append("Characters currently fighting : \n");
+        s.append("Characters currently fighting :\n");
         for (Character character : allCharacters) {
             s.append(String.format(" - %s\n", character.toString()));
         }
