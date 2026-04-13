@@ -30,7 +30,7 @@ public class Character {
     }
 
     public void takeDamage(int damage) {
-        this.currentHealth -= damage;
+        this.currentHealth = Math.max(0, this.currentHealth - damage);
     }
 
     public void attack(Character character) {
