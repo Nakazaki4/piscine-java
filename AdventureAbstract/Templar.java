@@ -43,7 +43,8 @@ public class Templar extends Character implements Healer, Tank {
 
     @Override
     public void takeDamage(int damage) {
-        this.setCurrentHealth(this.getCurrentHealth() - (damage - this.shield));
+        int actualDamage = Math.max(0,damage - this.shield);
+        this.setCurrentHealth(this.getCurrentHealth() - actualDamage);
     }
 
 }
