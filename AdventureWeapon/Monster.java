@@ -13,8 +13,8 @@ public class Monster extends Character {
             base = String.format("%s is a monster and is dead", this.getName());
         }
 
-        if (this.weapon != null) {
-            base = base + " He has the weapon " + this.weapon.toString() + ".";
+        if (this.getWeapon() != null) {
+            base = base + " He has the weapon " + this.getWeapon().toString() + ".";
         }
         return base;
     }
@@ -27,7 +27,7 @@ public class Monster extends Character {
 
     @Override
     public void attack(Character character) {
-        int damageToDeal = this.weapon != null ? this.weapon.getDamage() : 7;
+        int damageToDeal = this.getWeapon() != null ? this.getWeapon().getDamage() : 7;
         character.takeDamage(damageToDeal);
     }
 }

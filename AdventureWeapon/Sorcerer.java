@@ -19,7 +19,7 @@ public class Sorcerer extends Character implements Healer {
     @Override
     public void attack(Character character) {
         this.heal(this);
-        int damageToDeal = this.weapon != null ? this.weapon.getDamage() : 10;
+        int damageToDeal = this.getWeapon() != null ? this.getWeapon().getDamage() : 10;
         character.takeDamage(damageToDeal);
     }
 
@@ -38,8 +38,8 @@ public class Sorcerer extends Character implements Healer {
             base = this.getName() + " is a sorcerer with " + this.getCurrentHealth() + " HP. It can heal "
                     + this.healCapacity + " HP.";
         }
-        if (this.weapon != null) {
-            base = base + " He has the weapon " + this.weapon.toString() + ".";
+        if (this.getWeapon() != null) {
+            base = base + " He has the weapon " + this.getWeapon().toString() + ".";
         }
         return base;
     }

@@ -36,8 +36,8 @@ public class Templar extends Character implements Healer, Tank {
                     + this.healCapacity + " HP and has a shield of " + this.shield + ".";
 
         }
-        if (weapon != null) {
-            base = base + " He has the weapon " + this.weapon.toString() + ".";
+        if (this.getWeapon() != null) {
+            base = base + " He has the weapon " + this.getWeapon().toString() + ".";
         }
         return base;
     }
@@ -45,7 +45,7 @@ public class Templar extends Character implements Healer, Tank {
     @Override
     public void attack(Character character) {
         this.heal(this);
-        int damageToDeal = this.weapon != null ? this.weapon.getDamage() : 6;
+        int damageToDeal = this.getWeapon() != null ? this.getWeapon().getDamage() : 6;
         character.takeDamage(damageToDeal);
     }
 
