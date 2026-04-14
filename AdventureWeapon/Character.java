@@ -71,4 +71,8 @@ public abstract class Character {
     public abstract void takeDamage(int damage);
 
     public abstract void attack(Character character);
+
+    public Weapon getWeapon() {
+        return weapon;
+    }
 }
