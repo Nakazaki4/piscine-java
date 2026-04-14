@@ -62,7 +62,7 @@ public abstract class Character {
         return name;
     }
 
-    public void setCurrentHealth(int newHealth) {
+    protected void setCurrentHealth(int newHealth) {
         this.currentHealth = Math.min(maxHealth, newHealth);
     }
 
