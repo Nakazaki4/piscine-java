@@ -26,10 +26,10 @@ public class ListSearchIndex {
     }
 
     public static List<Integer> findAllIndexes(List<Integer> list, Integer value) {
-        if (list == null) {
-            return null;
-        }
         List<Integer> allIndexes = new ArrayList<>();
+        if (list == null) {
+            return allIndexes;
+        }
 
         for (int i = 0; i < list.size(); i++) {
             if (Objects.equals(list.get(i), value)) {
