@@ -17,8 +17,7 @@ public class SortList {
             return new ArrayList<>();
         }
 
-        Collections.sort(list);
-        Collections.reverse(list);
+        list.sort(Collections.reverseOrder());
         return list;
     }
 }
