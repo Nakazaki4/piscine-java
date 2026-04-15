@@ -12,7 +12,7 @@ public class SortList {
         }
         List<Integer> newList = new ArrayList<>(list);
         newList.sort(null);
-        return list;
+        return newList;
     }
 
     public static List<Integer> sortReverse(List<Integer> list) {
