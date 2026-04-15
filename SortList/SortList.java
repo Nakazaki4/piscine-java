@@ -13,12 +13,14 @@ public class SortList {
     }
 
     public static List<Integer> sortReverse(List<Integer> list) {
-        if (list == null || list.isEmpty()) {
+        if (list == null) {
             return new ArrayList<>();
         }
-
-        Collections.sort(list);
-        Collections.reverse(list);
-        return list;
+        
+        List<Integer> sortedList = new ArrayList<>(list);
+        
+        sortedList.sort(Collections.reverseOrder());
+        
+        return sortedList;
     }
 }
