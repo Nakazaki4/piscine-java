@@ -13,7 +13,7 @@ public class SortList {
     }
 
     public static List<Integer> sortReverse(List<Integer> list) {
-        if (list == null) {
+        if (list == null || list.isEmpty()) {
             return new ArrayList<>();
         }
         
