@@ -6,6 +6,9 @@ public class SortList {
 
     public static List<Integer> sort(List<Integer> list) {
         if (list == null) {
+            return null;
+        }
+        if (list.isEmpty()) {
             return new ArrayList<>();
         }
         Collections.sort(list);
