@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class SortList {
@@ -11,7 +10,8 @@ public class SortList {
         if (list.isEmpty()) {
             return new ArrayList<>();
         }
-        Collections.sort(list);
+        List<Integer> newList = new ArrayList<>(list);
+        newList.sort(null);
         return list;
     }
 
@@ -26,7 +26,7 @@ public class SortList {
 
         List<Integer> sortedList = new ArrayList<>(list);
 
-        sortedList.sort(Collections.reverseOrder());
+        sortedList.sort((a, b) -> b.compareTo(a));
 
         return sortedList;
     }
