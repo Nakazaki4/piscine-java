@@ -16,8 +16,11 @@ public class SortList {
         if (list == null) {
             return new ArrayList<>();
         }
-
-        list.sort(Collections.reverseOrder());
-        return list;
+        
+        List<Integer> sortedList = new ArrayList<>(list);
+        
+        sortedList.sort(Collections.reverseOrder());
+        
+        return sortedList;
     }
 }
