@@ -27,7 +27,9 @@ public class Sorcerer extends Character implements Healer {
     }
 
     @Override
-    public void takeDamage(int damage) {
+    public void takeDamage(int damage) throws DeadCharacterException {
+        if (this.getCurrentHealth() <= 0)
+            throw new DeadCharacterException(this);
         int actualDamage = Math.max(0, this.getCurrentHealth() - damage);
         this.setCurrentHealth(actualDamage);
     }
