@@ -11,7 +11,7 @@ public class FormatDate {
             return null;
         }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(
-            "'Le 'dd MMMM' de l''an 'yyyy' à 'HH'h'mm'm et 'ss's'", 
+            "'Le 'dd MMM' de l''an 'yyyy' à 'HH'h'mm'm et 'ss's'", 
             Locale.FRENCH
         );
         return dateTime.format(formatter);
