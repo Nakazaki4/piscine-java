@@ -6,7 +6,7 @@ public class RegexMatch {
         if (s == null) {
             return false;
         }
-        return s.matches("[a-zA-Z]");
+        return s.matches("[a-zA-Z]+");
     }
 
     public static boolean startWithLetterAndEndWithNumber(String s) {
