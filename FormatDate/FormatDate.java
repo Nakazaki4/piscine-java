@@ -1,4 +1,3 @@
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -11,7 +10,10 @@ public class FormatDate {
         if (dateTime == null) {
             return null;
         }
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("'Le 'dd MM 'de l''an 'yyyy' à 'HH'h'mm'm et 'ss's'", Locale.FRENCH);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(
+            "'Le 'dd MMMM' de l''an 'yyyy' à 'HH'h'mm'm et 'ss's'", 
+            Locale.FRENCH
+        );
         return dateTime.format(formatter);
     }
 
@@ -19,7 +21,7 @@ public class FormatDate {
         if (date == null) {
             return null;
         }
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM' 'dd' 'yy", Locale.ITALY);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd yy", Locale.ITALIAN);
         return date.format(formatter);
     }
 
