@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 public class RegexReplace {
 
     public static String removeUnits(String s) {
-        Pattern p = Pattern.compile("\\d+cm\s|\\d+€\s");
+        Pattern p = Pattern.compile("\\d+cm\\b|\\d+€");
         Matcher m = p.matcher(s);
         return m.replaceAll("");
     }
