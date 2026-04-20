@@ -54,19 +54,22 @@ public class RegexReplace {
     }
 
     private static String obfuscateName(String s) {
-        Pattern p = Pattern.compile("(?!.*[.-_])\\w+");
+        Pattern p = Pattern.compile("[-._]");
         Matcher m = p.matcher(s);
+        
         if (m.find()) {
-            return m.replaceAll("*");
+            int sepIndex = m.start();
+            String kept = s.substring(0, sepIndex + 1);
+            String hidden = s.substring(sepIndex + 1).replaceAll(".", "*");
+            return kept + hidden;
         }
 
         if (s.length() > 3) {
-            Pattern p1 = Pattern.compile("\\w{3}$");
-            Matcher m1 = p1.matcher(s);
-            if (m1.find()) {
-                return m1.replaceAll("*");
-            }
+            String kept = s.substring(0, 3);
+            String hidden = s.substring(3).replaceAll(".", "*");
+            return kept + hidden;
         }
-        return null;
+
+        return s;
     }
 }
