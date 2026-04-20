@@ -23,25 +23,50 @@ public class RegexReplace {
         String domainSide = email[1];
         if (!nameSide.trim().isEmpty() && !domainSide.trim().isEmpty()) {
             String on = obfuscateName(nameSide);
-            String od = obfuscateEmail(domainSide);
-            return on + od;
+            String od = obfuscateDomain(domainSide);
+            return on + "@" + od;
         }
         return null;
     }
 
     private static String obfuscateDomain(String s) {
+        Pattern p = Pattern.compile("^([^.]+)\\.([^.]+)(?:\\.([^.]+))?$");
+        Matcher m = p.matcher(s);
 
+        if (m.matches()) {
+            if (m.group(3) != null) {
+                return "*".repeat(m.group(1).length()) + "." + 
+                       m.group(2) + "." + 
+                       "*".repeat(m.group(3).length());
+            } else {
+                String top = m.group(2);
+                String hiddenSecond = "*".repeat(m.group(1).length());
+
+                if (top.matches("com|org|net")) {
+                    return hiddenSecond + "." + top;
+                } else {
+                    return hiddenSecond + "." + "*".repeat(top.length());
+                }
+            }
+        }
+        
+        return s;
     }
 
     private static String obfuscateName(String s) {
-        Pattern p = Pattern.compile("(?!.*[.|-|_])\\w+");
+        Pattern p = Pattern.compile("(?!.*[.-_])\\w+");
         Matcher m = p.matcher(s);
         if (m.find()) {
             return m.replaceAll("*");
         }
 
-        if (s.length() > 3){
-            Pattern p = Pattern.compile("");
+        if (s.length() > 3) {
+            Pattern p1 = Pattern.compile("\\w{3}$");
+            Matcher m1 = p1.matcher(s);
+            if (m1.find()) {
+                return m1.replaceAll("*");
+            }
         }
+        return null;
     }
 }
