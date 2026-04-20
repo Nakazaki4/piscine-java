@@ -4,7 +4,7 @@ public class Excalibur {
     private static String name;
     private static Excalibur INSTANCE;
 
-    public Excalibur(String name) {
+    private Excalibur(String name) {
         this.name = name;
     }
 
