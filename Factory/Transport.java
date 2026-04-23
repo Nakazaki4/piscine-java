@@ -1,0 +1,4 @@
+
+interface Transport {
+    int getDistance();
+}
