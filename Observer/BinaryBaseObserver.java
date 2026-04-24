@@ -1,9 +1,10 @@
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class BinaryBaseObserver implements NumericBaseObserver{
+public class BinaryBaseObserver implements NumericBaseObserver {
 
-    private List<String> events;
+    private List<String> events = new ArrayList<>();
 
     @Override
     public void updateState(int state) {
