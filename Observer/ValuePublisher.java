@@ -1,9 +1,10 @@
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ValuePublisher {
 
-    List<NumericBaseObserver> observers;
+    List<NumericBaseObserver> observers = new ArrayList<>();
 
     public void updateState(int value) {
         this.observers.forEach(observer -> observer.updateState(value));;
